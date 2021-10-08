@@ -16,12 +16,12 @@ function todoist-work() {
 }
 
 function todoist-c() {
-    todoist close $($@ | peco | awk ' {print $1}')
+    $@ | peco | awk ' {print $1}' | xargs -n 1 todoist c    
     todoist sync
 }
 
 function todoist-d() {
-    todoist d $($@ | peco | awk ' {print $1}')
+    $@ | peco | awk ' {print $1}' | xargs -n 1 todoist d
     todoist sync
 }
 
